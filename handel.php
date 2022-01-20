@@ -68,6 +68,8 @@
                 <p>Aqui va el desplegable con tantos desplegables como comensales son en este caso serian: <?php echo $comensales; ?></p>
                 <?php echo buscarbasedatos ("Entrantes"); ?>
                 <hr>
+                <?php echo buscarbasedatos ("Bebida"); ?>
+                <hr>
                 <?php echo buscarbasedatos ("Primer Plato"); ?>
                 <hr>
                 <?php echo buscarbasedatos ("Segundo Plato"); ?>
