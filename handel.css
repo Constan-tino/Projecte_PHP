@@ -1,0 +1,32 @@
+html {
+    margin-top: auto;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: auto;
+    background-color: bisque;
+}
+
+.principal {
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: white;
+    height: 100%;
+    padding: 30px;
+    padding-top: 10px;
+}
+.titulo{
+    text-align: center;
+}
+.agrupaciones {
+    margin:4px;
+    margin-top: 20px;
+    float: left;
+    width: 19.5%;
+    height: 50%;
+    background-color: rgba(240, 227, 202, 0.438);
+    color: rgb(0, 0, 0);
+}
+
+.enviarcomanda{
+   float: right;
+}
