@@ -17,7 +17,7 @@ $s_dish = array();
 $dessert = array();
 $drinks = array();
 
-echo '$n_people';
+echo $n_people;
 
 for($i=0; $i<$n_people; $i++) {
     $sql = "INSERT INTO pruebas1 (Id, Hecho, Entrante, Primer_Plato, Segundo_Plato, Postre, Bebida) VALUES ('', '', '', '$p_plato[$i]', '$s_plato[$i]', '$postre[$i]', '$bebida[$i]')";
