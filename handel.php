@@ -21,7 +21,7 @@
                     }   
             ?>
             <label >Numero de Comensales:</label>
-                <select  name="Comensales" >
+                <select  name="diners" >
                     <?php
                         for ($i=1;$i<=10;$i++) {
                             echo "<option>$i</option>\n";
@@ -37,20 +37,17 @@
         echo "<form action=\"subirdatos.php\" method=\"post\">";
         
         //Cogemos la inofrmacion que nos vienen de la pagina anterior mediante el nameS -->
-                $comensales=$_POST['Comensales']; 
-                $mesa=$_POST['mesa']; 
-                //echo $comensales; 
+                $diners=$_POST['diners']; 
+                $mesa=$_POST['mesa'];  
         
                 //Nos conectamos con la base de datos
         //echo "<link type='text/css' rel='stylesheet' href='../css/css3.css'>";
-                            function buscarbasedatos ($string, $comensales2) {
+                            function searchdatabase ($string, $diners2) {
                             $servername = "localhost";
                             $username = "root";
                             $database = "comeahora";
                             $password = "";
                             $conn = mysqli_connect($servername, $username, $password, $database);
-
-                            // echo $comensales2;
 
                             if (!$conn) {
                                 die("Connection failed: " . mysqli_connect_error() . "<br>" );
@@ -65,7 +62,7 @@
                             if ($chequeo>0) {
                                 //echo "<table><tr><th>Nombre</th><th>Tipo</th></tr>";
                                 echo "<fieldset><legend>$string:</legend>";
-                                for ($i=1;$i<=$comensales2;$i++) {
+                                for ($i=1;$i<=$diners2;$i++) {
                                 
                                         echo "<select class=\"select-css\"  name=\"$string$i\" >";
                                         echo "<option>--Selecciona--</option>\n";
@@ -91,11 +88,11 @@
                 echo "<h1 class=\"titulo\">Mesa $mesa</h1>";
             echo "</div>";
                 echo "<hr>"; 
-                echo buscarbasedatos ("Bebida",$comensales);
-                echo buscarbasedatos ("Entrantes",$comensales);
-                echo buscarbasedatos ("Primer Plato",$comensales);
-                echo buscarbasedatos ("Segundo Plato",$comensales);
-                echo buscarbasedatos ("Postre",$comensales);  
+                echo searchdatabase ("Bebida",$diners);
+                echo searchdatabase ("Entrantes",$diners);
+                echo searchdatabase ("Primer Plato",$diners);
+                echo searchdatabase ("Segundo Plato",$diners);
+                echo searchdatabase ("Postre",$diners);  
                 echo "<hr>";
                 echo "<input class=\"enviarcomanda\" type=\"submit\" value=\"Enviar comanda\" class=\"boton\">";
             echo "</div>";
