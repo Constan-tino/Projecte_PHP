@@ -9,26 +9,30 @@
 </head>
 <body>
 
-    <form class= "escogermesa" action="handel.php" method="post">
+    <form action="handel.php" method="post">
         <h1 class="titulo">Ordenador de Comandas</h1>
         <hr>
-            <label for="MESA">Seleciona la mesa en la que vas a hacer la comanda:</label>
-            <br>
-            <?php 
-                $mesas= array(1,2,3,4,5,6,7,8,9,10,11,12,13);
-                foreach($mesas as $mesa) {
-                    echo "<input type=\"radio\" name=\"mesa\" value=\"$mesa\" required>$mesa";
-                    }   
-            ?>
-            <label >Numero de Comensales:</label>
-                <select  name="diners" >
-                    <?php
-                        for ($i=1;$i<=10;$i++) {
-                            echo "<option>$i</option>\n";
-                        }
+            <div class= "escogermesa">
+                    <label for="TABLE">Seleciona la mesa en la que vas a hacer la comanda:</label>
+                    <br>
+                    <?php 
+                        $tables= array(1,2,3,4,5,6,7,8,9,10,11,12,13);
+                        foreach($tables as $table) {
+                            echo "<input type=\"radio\" name=\"table\" value=\"$table\" required>$table&nbsp;&nbsp;";
+                            }
+                        
+                        echo "&nbsp;&nbsp;";
                     ?>
-                    </select>
-                <input type="submit" value="Siguiente >" class="boton">
+                    <label >Numero de Comensales:</label>
+                        <select  name="diners" >
+                            <?php
+                                for ($i=1;$i<=10;$i++) {
+                                    echo "<option>$i</option>\n";
+                                }
+                            ?>
+                            </select>
+                        <input type="submit" value="Siguiente >" class="boton">
+            </div>
     </form>
 
     <hr>
@@ -38,10 +42,9 @@
         
         //Cogemos la inofrmacion que nos vienen de la pagina anterior mediante el nameS -->
                 $diners=$_POST['diners']; 
-                $mesa=$_POST['mesa'];  
+                $mesa=$_POST['table'];  
         
-                //Nos conectamos con la base de datos
-        //echo "<link type='text/css' rel='stylesheet' href='../css/css3.css'>";
+                            //Nos conectamos con la base de datos
                             function searchdatabase ($string, $diners2) {
                             $servername = "localhost";
                             $username = "root";
@@ -69,9 +72,9 @@
                                         while ($row = mysqli_fetch_assoc($result)){
                                             //for loop better than this line
                                             //echo "<tr><td>" . $row['Name'] . "</td><td>" . $row['Type'] . "</td></tr>";
-                                            $solucion.="<option>".$row['Name']."</option>\n";
+                                            $solution.="<option>".$row['Name']."</option>\n";
                                         }
-                                        echo "$solucion</select>";
+                                        echo "$solution</select>";
                                 }
                                         //echo "</table></div>";
                                         echo "</fieldset><br>";
@@ -85,7 +88,7 @@
 
         echo "<div class=\"principal\">";
             echo "<div class=\"titulo\">";
-                echo "<h1 class=\"titulo\">Mesa $mesa</h1>";
+                echo "<h1 class=\"titulo\">Mesa $table</h1>";
             echo "</div>";
                 echo "<hr>"; 
                 echo searchdatabase ("Bebida",$diners);
