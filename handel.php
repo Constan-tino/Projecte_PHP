@@ -5,85 +5,104 @@
     <!-- change to utf-8 if you use that -->
     <meta charset="ISO-8859-1">
     <title>Aplicación</title>
-    <link rel="stylesheet" href="handel.css">
+    <link rel="stylesheet" href="handel2.css">
 </head>
 <body>
-    <form action="subirdatos.php" method="post">
-        <?php
+
+    <form class= "escogermesa" action="handel2.php" method="post">
+        <h1 class="titulo">Ordenador de Comandas</h1>
+        <hr>
+            <label for="MESA">Seleciona la mesa en la que vas a hacer la comanda:</label>
+            <br>
+            <?php 
+                $mesas= array(1,2,3,4,5,6,7,8,9,10,11,12,13);
+                foreach($mesas as $mesa) {
+                    echo "<input type=\"radio\" name=\"mesa\" value=\"$mesa\" required>$mesa";
+                    }   
+            ?>
+            <label >Numero de Comensales:</label>
+                <select  name="Comensales" >
+                    <?php
+                        for ($i=1;$i<=10;$i++) {
+                            echo "<option>$i</option>\n";
+                        }
+                    ?>
+                    </select>
+                <input type="submit" value="Siguiente >" class="boton">
+    </form>
+
+    <hr>
+    
+    <?php if ($_SERVER['REQUEST_METHOD']=="POST") {
+        echo "<form action=\"subirdatos.php\" method=\"post\">";
+        
+        //Cogemos la inofrmacion que nos vienen de la pagina anterior mediante el nameS -->
                 $comensales=$_POST['Comensales']; 
                 $mesa=$_POST['mesa']; 
                 //echo $comensales; 
-            ?>
-
-        <?PHP
-        //Nos conectamos con la base de datos
+        
+                //Nos conectamos con la base de datos
         //echo "<link type='text/css' rel='stylesheet' href='../css/css3.css'>";
-        function buscarbasedatos ($string) {
-        $servername = "localhost";
-        $username = "root";
-        $database = "comeahora";
-        $password = "";
-        $conn = mysqli_connect($servername, $username, $password, $database);
+                            function buscarbasedatos ($string, $comensales2) {
+                            $servername = "localhost";
+                            $username = "root";
+                            $database = "comeahora";
+                            $password = "";
+                            $conn = mysqli_connect($servername, $username, $password, $database);
 
+                            // echo $comensales2;
 
-        if (!$conn) {
+                            if (!$conn) {
+                                die("Connection failed: " . mysqli_connect_error() . "<br>" );
+                            }
 
-            die("Connection failed: " . mysqli_connect_error() . "<br>" );
+                            $sql = "select * from menu where Type='$string'";
+                            $result= mysqli_query($conn, $sql);
+                            $chequeo = mysqli_num_rows($result);
 
+                            echo "<div>";
+
+                            if ($chequeo>0) {
+                                //echo "<table><tr><th>Nombre</th><th>Tipo</th></tr>";
+                                echo "<fieldset><legend>$string:</legend>";
+                                for ($i=1;$i<=$comensales2;$i++) {
+                                
+                                        echo "<select class=\"select-css\"  name=\"$string$i\" >";
+                                        echo "<option>--Selecciona--</option>\n";
+                                        while ($row = mysqli_fetch_assoc($result)){
+                                            //for loop better than this line
+                                            //echo "<tr><td>" . $row['Name'] . "</td><td>" . $row['Type'] . "</td></tr>";
+                                            $solucion.="<option>".$row['Name']."</option>\n";
+                                        }
+                                        echo "$solucion</select>";
+                                }
+                                        //echo "</table></div>";
+                                        echo "</fieldset><br>";
+                            } else {
+
+                                echo "No hay niguna petición de reserva :( <br>";
+                            }
+
+                            mysqli_close($conn);
+                            }
+
+        echo "<div class=\"principal\">";
+            echo "<div class=\"titulo\">";
+                echo "<h1 class=\"titulo\">Mesa $mesa</h1>";
+            echo "</div>";
+                echo "<hr>"; 
+                echo buscarbasedatos ("Bebida",$comensales);
+                echo buscarbasedatos ("Entrantes",$comensales);
+                echo buscarbasedatos ("Primer Plato",$comensales);
+                echo buscarbasedatos ("Segundo Plato",$comensales);
+                echo buscarbasedatos ("Postre",$comensales);  
+                echo "<hr>";
+                echo "<input class=\"enviarcomanda\" type=\"submit\" value=\"Enviar comanda\" class=\"boton\">";
+            echo "</div>";
+    
+            echo "</form>";
+    
         }
-
-        $sql = "select * from menu where Type='$string'";
-        $result= mysqli_query($conn, $sql);
-        $chequeo = mysqli_num_rows($result);
-
-        echo "<div>";
-
-        if ($chequeo>0) {
-            //echo "<table><tr><th>Nombre</th><th>Tipo</th></tr>";
-            echo "<fieldset><legend>$string:</legend>";
-            while ($row = mysqli_fetch_assoc($result)){
-                //for loop better than this line
-                //echo "<tr><td>" . $row['Name'] . "</td><td>" . $row['Type'] . "</td></tr>";
-                echo "<div class=\"agrupaciones\"> <input type=\"radio\" name=\"".$row['Type']."\" value=\"".$row['Name']."\" required>" .$row['Name']."</div>";
-            }
-
-            //echo "</table></div>";
-            echo "</fieldset>";
-        } else {
-
-            echo "No hay niguna petición de reserva :( <br>";
-
-        }
-
-        mysqli_close($conn);
-        }
-
-
-        ?>
-
-        <div class="principal">
-            <div class="titulo">
-                <h1>Mesa <?php echo $mesa; ?></h1>
-            </div>
-                <p>Aqui va el desplegable con tantos desplegables como comensales son en este caso serian: <?php echo $comensales; ?></p>
-                <?php echo buscarbasedatos ("Entrantes"); ?>
-                <hr>
-                <?php echo buscarbasedatos ("Bebida"); ?>
-                <hr>
-                <?php echo buscarbasedatos ("Primer Plato"); ?>
-                <hr>
-                <?php echo buscarbasedatos ("Segundo Plato"); ?>
-                <hr>
-                <?php echo buscarbasedatos ("Postre"); ?>
-                <!--<fieldset><legend>Entrantes:</legend>
-                    <div>
-                    <input type="radio" name="mesa" value="$mesa" required>Pan con Aceite.
-                    </div>
-                </fieldset> -->
-                <hr>
-                <input class="enviarcomanda" type="submit" value="Enviar comanda" class="boton">
-            </div>
-    </form>
+    ?>
 </body>
 </html>
-
