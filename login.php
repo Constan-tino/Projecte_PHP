@@ -10,7 +10,7 @@ session_start();
     if(isset($_SESSION['waiter'])){
         header('Location: http://localhost/projecto/handel.php');
     }elseif(isset($_SESSION['chef'])){
-        header('Location: http://localhost/projecto/chef.php');
+        header('Location: http://localhost/projecto/kitchen.php');
     }
 ?>
 
