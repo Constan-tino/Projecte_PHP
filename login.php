@@ -44,15 +44,16 @@ if($_SERVER['REQUEST_METHOD']=="POST") {
             if ($user=="waiter") {
 
                     $_SESSION['waiter']= $user;
-
-                    echo $_SESSION['waiter'];
-                echo "Las credenciales són correctas<br>";
-                echo "<a href='handel.php'>Entrar a la página</a>";
+                    header('Location: http://localhost/projecto/handel.php');
+                    //echo $_SESSION['waiter'];
+                //echo "Las credenciales són correctas<br>";
+                //echo "<a href='handel.php'>Entrar a la página</a>";
             } else {
                 $_SESSION['chef']= $user;
-                echo $_SESSION['chef'];
-                echo "Las credenciales són correctas<br>";
-                echo "<a href='kitchen.php'>Entrar a la página</a>";
+                header('Location: http://localhost/projecto/kitchen.php');
+                //echo $_SESSION['chef'];
+                //echo "Las credenciales són correctas<br>";
+                //echo "<a href='kitchen.php'>Entrar a la página</a>";
             }
         } else {
             echo "Credenciales incorrectos";
