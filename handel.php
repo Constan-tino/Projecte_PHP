@@ -10,7 +10,7 @@
 <body>
 
     <form action="handel.php" method="post">
-        <h1 class="titulo">Ordenador de Comandas</h1>
+        <h1 class="header">Ordenador de Comandas</h1>
         <hr>
             <div class= "escogermesa">
                     <label for="TABLE">Seleciona la mesa en la que vas a hacer la comanda:</label>
