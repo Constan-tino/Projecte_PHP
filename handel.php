@@ -97,14 +97,16 @@
                 echo searchdatabase ("Segundo Plato",$diners);
                 echo searchdatabase ("Postre",$diners);  
                 echo "<hr>";
+                echo "<input class='hide' name='Diners' value='$diners'>";
+                echo "<input class='hide' name='Mesa' value='$mesa'>";
                 echo "<input class=\"enviarcomanda\" type=\"submit\" value=\"Enviar comanda\" class=\"boton\">";
+            
             echo "</div>";
     
-            echo "</form>";
+        echo "</form>";
 
-        }
-        echo "<input class='hide' name='Diners' value='$diners'>";
-        echo "<input class='hide' name='Mesa' value='$mesa'>";
+    }
+        
     ?>
 </body>
 </html>
