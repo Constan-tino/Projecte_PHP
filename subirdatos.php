@@ -39,8 +39,11 @@ for($i=1; $i<=$n_people; $i++){
     array_push($drinks, $_POST["Bebida$i"])
 }
 
+$id = "SELECT count(Id) from pruebas1 group by Id";
+$id ++;
+
 for($i=0; $i<$n_people; $i++) {
-    $sql = "INSERT INTO pruebas1 (Hecho, Entrante, Primer_Plato, Segundo_Plato, Postre, Bebida) VALUES (0, '$entrante[$i]', '$f_dish[$i]', '$s_dish[$i]', '$dessert[$i]', '$drinks[$i]')";
+    $sql = "INSERT INTO pruebas1 (Id, Hecho, Entrante, Primer_Plato, Segundo_Plato, Postre, Bebida, Mesa) VALUES ($id, 0, '$entrante[$i]', '$f_dish[$i]', '$s_dish[$i]', '$dessert[$i]', '$drinks[$i]', '$mesa')";
     if (mysqli_query($conn, $sql)) {
         echo "La comanda se a enviado correctamente";
         sleep(5);
