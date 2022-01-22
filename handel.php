@@ -100,8 +100,8 @@
             echo "</form>";
 
         }
-        echo "<input class='hide' name='diners' value='$diners'>";
-        echo "<input class='hide' name='mesa' value='$mesa'>";
+        echo "<input class='hide' name='Diners' value='$diners'>";
+        echo "<input class='hide' name='Mesa' value='$mesa'>";
     ?>
 </body>
 </html>

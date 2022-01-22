@@ -11,8 +11,8 @@ if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
 }
 
-$n_people = $_POST['diners'];
-$mesa = $_POST['mesa'];
+$n_people = $_POST['Diners'];
+$mesa = $_POST['Mesa'];
 $entrante = array();
 $f_dish = array();
 $s_dish = array();
