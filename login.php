@@ -33,11 +33,9 @@ if($_SERVER['REQUEST_METHOD']=="POST") {
     foreach ($login as $key => $value) {
         if ($key==$user && $value==$pass) {
             if ($user=="waiter") {
-                echo "Las credenciales són correctas<br>";
-                echo "<a href='handel.php'>Entrar a la página</a>";
+                header('handel.php');
             } else {
-                echo "Las credenciales són correctas<br>";
-                echo "<a href='kitchen.php'>Entrar a la página</a>";
+                header('kitchen.php');
             }
         } else {
 
