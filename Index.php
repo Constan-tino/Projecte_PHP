@@ -9,7 +9,15 @@
 </head>
 <body>
 <h1>Menú del dia:</h1>
-<p>El menú esta compuesto por un entrante, un primer plato, un segundo plato y un postre</p>
+<h2>1 Entrante</p>
+<h2>1 Bebida</h2>    
+<h2>1 Primer Plato</h2>
+<h2>1 Segundo Plato</h2>
+<h2>1 Postre</h2>
+<hr>
+<h2>Por Solo 17 Euros</h2>
+<br>
+    
     <?php 
                 function searchdatabase ($typefoot) {
                     $servername = "localhost";
