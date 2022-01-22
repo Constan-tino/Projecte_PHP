@@ -95,7 +95,7 @@
 
         echo "<div class=\"principal\">";
             echo "<div class=\"titulo\">";
-                echo "<h1 class=\"titulo\">Mesa $table</h1>";
+                echo "<h1 class=\"titulo\">Mesa $mesa</h1>";
             echo "</div>";
                 echo "<hr>"; 
                 echo searchdatabase ("Bebida",$diners);
