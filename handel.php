@@ -98,8 +98,10 @@
             echo "</div>";
     
             echo "</form>";
-    
+
         }
+        echo "<input class='hide' name='diners' value='$diners'>";
+        echo "<input class='hide' name='mesa' value='$mesa'>";
     ?>
 </body>
 </html>

@@ -100,3 +100,7 @@ fieldset {
       background: #ce5a07;
       border: rgb(65, 33, 11);
   }
+
+  .hide {
+    display: none;
+  }
