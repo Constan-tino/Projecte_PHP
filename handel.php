@@ -1,3 +1,10 @@
+<?php
+    ini_set('display_errors', 1);
+                        error_reporting(E_ALL);
+                        session_start();
+                        //echo "Session started";
+    if (isset($_SESSION['waiter'])) {
+?>
 <!doctype html>
 <html lang="es">
 
@@ -10,7 +17,7 @@
 <body>
 
     <form action="handel.php" method="post">
-        <h1 class="header">Ordenador de Comandas</h1>
+        <h1 class="titulo">Ordenador de Comandas</h1>
         <hr>
             <div class= "escogermesa">
                     <label for="TABLE">Seleciona la mesa en la que vas a hacer la comanda:</label>
@@ -97,16 +104,18 @@
                 echo searchdatabase ("Segundo Plato",$diners);
                 echo searchdatabase ("Postre",$diners);  
                 echo "<hr>";
+
                 echo "<input class='hide' name='Diners' value='$diners'>";
                 echo "<input class='hide' name='Mesa' value='$mesa'>";
+                
                 echo "<input class=\"enviarcomanda\" type=\"submit\" value=\"Enviar comanda\" class=\"boton\">";
-            
             echo "</div>";
     
-        echo "</form>";
-
-    }
-        
+            echo "</form>";
+            
+        }
+echo "</body></html>";
+}else {
+echo "Logeate";
+}
     ?>
-</body>
-</html>
