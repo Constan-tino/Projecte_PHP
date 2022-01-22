@@ -116,6 +116,7 @@
         }
 echo "</body></html>";
 }else {
-echo "Logeate";
+    header('Location: http://localhost/projecto/login.php');
+//echo "Logeate";
 }
     ?>
