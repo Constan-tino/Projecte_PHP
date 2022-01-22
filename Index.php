@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+
+<div class="login">
+        <a href="login.php"><button>Iniciar sesión</button></a>
+</div>
+
 <h1>Menú del dia:</h1>
 <h2>1 Entrante</p>
 <h2>1 Bebida</h2>    
