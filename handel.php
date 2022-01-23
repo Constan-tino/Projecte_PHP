@@ -53,10 +53,10 @@
         
                             //Nos conectamos con la base de datos
                             function searchdatabase ($string, $diners2) {
-                            $servername = "localhost";
-                            $username = "root";
+                            $servername = "bbdd.comeeahora.com";
+                            $username = "Tino";
                             $database = "comeahora";
-                            $password = "";
+                            $password = "12345678Aa";
                             $conn = mysqli_connect($servername, $username, $password, $database);
 
                             if (!$conn) {
@@ -116,7 +116,7 @@
         }
 echo "</body></html>";
 }else {
-    header('Location: http://localhost/projecto/login.php');
+    header('Location: login.php');
 //echo "Logeate";
 }
     ?>

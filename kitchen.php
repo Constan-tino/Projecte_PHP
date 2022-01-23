@@ -30,10 +30,11 @@ if (!$conn) {
 
 $sql = "SELECT * from requests where Hecho = 0";
 $id = "SELECT count(Id) from requests where Hecho = 0 group by Id";
-echo "<input type=\"number\" name=\"n_id\" value=\"$id\">";
+echo "<input type=\"number\" class=\"hide\" name=\"n_id\" value=\"$id\">";
 $contador = 1;
 $result= mysqli_query($conn, $sql);
 $chequeo = mysqli_num_rows($result);
+echo "<form action=\"subirdatos.php\" method=\"post\">";
 echo "<h1>Comandas</h1>";
 echo "<div>";
 if ($chequeo>0) {
@@ -46,6 +47,8 @@ if ($chequeo>0) {
         $contador++;
     }
     echo "</table></div>";
+    echo "<input class=\"enviarcomanda\" type=\"submit\" value=\"Enviar comanda\" class=\"boton\">";
+    echo "</form>";
 } else {
     echo "No hay niguna petición de reserva :( <br>";
 }
@@ -59,7 +62,7 @@ if($_SERVER['REQUEST_METHOD']=="POST") {
             $result= mysqli_query($conn, $sql);
         }
     }
-    header('kitchen.php');
+    header('Location: kitchen.php');
 }
 
 echo "</body></html>";

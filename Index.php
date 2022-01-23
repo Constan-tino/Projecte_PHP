@@ -25,10 +25,10 @@
     
     <?php 
                 function searchdatabase ($typefoot) {
-                    $servername = "localhost";
-                    $username = "root";
+                    $servername = "bbdd.comeeahora.com";
+                    $username = "Tino";
                     $database = "comeahora";
-                    $password = "";
+                    $password = "12345678Aa";
                     $conn = mysqli_connect($servername, $username, $password, $database);
 
                     if (!$conn) {
