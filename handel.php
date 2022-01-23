@@ -49,7 +49,7 @@
         
         //Cogemos la inofrmacion que nos vienen de la pagina anterior mediante el nameS -->
                 $diners=$_POST['diners']; 
-                $mesa=$_POST['table'];  
+                $table2=$_POST['table'];  
         
                             //Nos conectamos con la base de datos
                             function searchdatabase ($string, $diners2) {
@@ -95,7 +95,7 @@
 
         echo "<div class=\"principal\">";
             echo "<div class=\"titulo\">";
-                echo "<h1 class=\"titulo\">Mesa $mesa</h1>";
+                echo "<h1 class=\"titulo\">Mesa $table2</h1>";
             echo "</div>";
                 echo "<hr>"; 
                 echo searchdatabase ("Bebida",$diners);
@@ -106,7 +106,7 @@
                 echo "<hr>";
 
                 echo "<input class='hide' name='Diners' value='$diners'>";
-                echo "<input class='hide' name='Mesa' value='$mesa'>";
+                echo "<input class='hide' name='Mesa' value='$table2'>";
                 
                 echo "<input class=\"enviarcomanda\" type=\"submit\" value=\"Enviar comanda\" class=\"boton\">";
             echo "</div>";

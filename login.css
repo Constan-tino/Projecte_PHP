@@ -1,0 +1,22 @@
+body {
+    background-image: url('fondo.jpeg');
+}
+
+.login {
+    background-color: bisque;
+    margin-top: 15%;
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 40%;
+    height: 40%;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.users {
+    margin-left: 38%;
+    margin-bottom: 5;
+}
