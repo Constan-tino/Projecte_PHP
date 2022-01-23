@@ -17,6 +17,9 @@
 <body>
 
     <form action="handel.php" method="post">
+        <!--Logout-->
+    <a href="logoutwaiter.php"><p>Logout</p></a>
+
         <h1 class="titulo">Ordenador de Comandas</h1>
         <hr>
             <div class= "escogermesa">

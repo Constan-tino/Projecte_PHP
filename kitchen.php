@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="handel.css">
 </head>
 <body>
+<!--Logout-->
+<a href="logoutchef.php"><p>Logout</p></a>
+
 <form action="kitchen.php" method="post">
 <?php
 
