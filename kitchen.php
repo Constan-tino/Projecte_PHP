@@ -12,6 +12,7 @@ if (!$conn) {
 }
 
 $sql = "SELECT * from requests where Hecho = 0";
+$id = "SELECT count(Id) from requests where Hecho = 0 group by Id";
 $result= mysqli_query($conn, $sql);
 $chequeo = mysqli_num_rows($result);
 echo "<h1>Comandas</h1>";
@@ -21,7 +22,7 @@ if ($chequeo>0) {
     while ($row = mysqli_fetch_assoc($result)){ 
         //for loop better than this line
         echo "<tr><td>".$row['Id']."</td><td>".$row['Mesa']."</td><td>".$row['Name']."</td><td>".$row['Entrante']."</td><td>".$row['Bebida']."</td><td>".$row['Primer plato']."</td><td>".$row['Segundo plato']."</td><td>".$row['Postre']."</td><td>"
-        echo "<input type=\"checkbox\" name=\"".$row['Id']."\" value=\"".$row['Id']."\">";
+        echo "<input type=\"checkbox\" name=\"c\" value=\"".$row['Id']."\">";
         echo "</td></tr>";
     }
     echo "</table></div>";
@@ -29,13 +30,22 @@ if ($chequeo>0) {
     echo "No hay niguna petición de reserva :( <br>";
 }
 
-function updateTable($ids) {
+
+if($_SERVER['REQUEST_METHOD']=="POST") {
     for() {
-        $sql = "UPDATE requests SET Hecho = 1 WHERE Id = 'sadsad'";
+        $sql = "UPDATE requests SET Hecho = 1 WHERE Id = '$_POST['']'";
         $result= mysqli_query($conn, $sql);
     }
+    header('kitchen.php');
+}
+
+function updateTable($ids) {
+
 }
 
 mysqli_close($conn);
+
+sleep(20);
+header('kitchen.php');
 
 ?>
