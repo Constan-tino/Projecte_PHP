@@ -53,10 +53,10 @@
         
                             //Nos conectamos con la base de datos
                             function searchdatabase ($string, $diners2) {
-                            $servername = "bbdd.comeeahora.com";
-                            $username = "Tino";
+                            $servername = "localhost";
+                            $username = "root";
                             $database = "comeahora";
-                            $password = "12345678Aa";
+                            $password = "";
                             $conn = mysqli_connect($servername, $username, $password, $database);
 
                             if (!$conn) {
@@ -68,7 +68,7 @@
                             $chequeo = mysqli_num_rows($result);
 
                             echo "<div>";
-
+                            $solution = "";
                             if ($chequeo>0) {
                                 //echo "<table><tr><th>Nombre</th><th>Tipo</th></tr>";
                                 echo "<fieldset><legend>$string:</legend>";
@@ -100,8 +100,8 @@
                 echo "<hr>"; 
                 echo searchdatabase ("Bebida",$diners);
                 echo searchdatabase ("Entrantes",$diners);
-                echo searchdatabase ("Primer Plato",$diners);
-                echo searchdatabase ("Segundo Plato",$diners);
+                echo searchdatabase ("Primer_Plato",$diners);
+                echo searchdatabase ("Segundo_Plato",$diners);
                 echo searchdatabase ("Postre",$diners);  
                 echo "<hr>";
 

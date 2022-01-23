@@ -8,9 +8,9 @@
     $login=array("waiter"=>"12345", "chef"=>"54321");
 
     if(isset($_SESSION['waiter'])){
-        header('Location: http://localhost/projecto/handel.php');
+        header('Location: handel.php');
     }elseif(isset($_SESSION['chef'])){
-        header('Location: http://localhost/projecto/kitchen.php');
+        header('Location: kitchen.php');
     }
 ?>
 
@@ -50,13 +50,13 @@ if($_SERVER['REQUEST_METHOD']=="POST") {
             if ($user=="waiter") {
 
                     $_SESSION['waiter']= $user;
-                    header('Location: http://localhost/projecto/handel.php');
+                    header('Location: handel.php');
                     //echo $_SESSION['waiter'];
                 //echo "Las credenciales són correctas<br>";
                 //echo "<a href='handel.php'>Entrar a la página</a>";
             } else {
                 $_SESSION['chef']= $user;
-                header('Location: http://localhost/projecto/kitchen.php');
+                header('Location: kitchen.php');
                 //echo $_SESSION['chef'];
                 //echo "Las credenciales són correctas<br>";
                 //echo "<a href='kitchen.php'>Entrar a la página</a>";

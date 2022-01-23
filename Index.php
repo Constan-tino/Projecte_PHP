@@ -25,10 +25,10 @@
     
     <?php 
                 function searchdatabase ($typefoot) {
-                    $servername = "bbdd.comeeahora.com";
-                    $username = "Tino";
+                    $servername = "localhost";
+                    $username = "root";
                     $database = "comeahora";
-                    $password = "12345678Aa";
+                    $password = "";
                     $conn = mysqli_connect($servername, $username, $password, $database);
 
                     if (!$conn) {
@@ -56,8 +56,8 @@
                 }
         
         echo searchdatabase("Entrantes");
-        echo searchdatabase("Primer Plato");
-        echo searchdatabase("Segundo Plato");
+        echo searchdatabase("Primer_Plato");
+        echo searchdatabase("Segundo_Plato");
         echo searchdatabase("Postre");
     ?>
 </body>
